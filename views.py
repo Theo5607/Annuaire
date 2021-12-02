@@ -1,4 +1,3 @@
-from flask import Flask, render_template, request
 import sqlite3
 
 conn = sqlite3.connect('baseDonnees.db')
@@ -20,11 +19,23 @@ def index():
 def ajout():
     return render_template("ajout.html")
 
-@app.route('/resultat',methods = ['POST'])
+@app.route('/ajout_ok',methods = ['POST'])
 def resultat():
   result = request.form
   n = result['nom']
   p = result['prenom']
-  return render_template("resultat.html", nom=n, prenom=p)
+  nt = result['numero']
+  return render_template("resultat.html", nom=n, prenom=p, numero=nt)
 
-app.run(port=5008)
+
+def enregistrement_bd(values):
+    conn = sqlite3.connect('baseDonnees.db')
+    cur = conn.cursor()
+    
+    cur.execute("INSERT INTO NUMEROS (id, nom, prenom) VALUES (?, ?, ?)", (values[0], values[1], values[2]))
+    conn.commit()
+    
+    cur.close()
+    conn.close()
+
+app.run(port=5000)
