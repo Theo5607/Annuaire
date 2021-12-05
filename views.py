@@ -1,11 +1,3 @@
-import sqlite3
-
-conn = sqlite3.connect('baseDonnees.db')
-cur = conn.cursor()
-
-cur.execute("CREATE TABLE IF NOT EXISTS NUMEROS(id INT, nom TEXT, prenom TXT, numero INT)")
-conn.commit()
-
 cur.close()
 conn.close()
 
@@ -19,21 +11,50 @@ def index():
 def ajout():
     return render_template("ajout.html")
 
+@app.route('/recherche')
+def recherche():
+  return render_template("recherche.html")
+
 @app.route('/ajout_ok',methods = ['POST'])
-def resultat():
+def ajout_ok():
   result = request.form
   n = result['nom']
   p = result['prenom']
   nt = result['numero']
-  return render_template("resultat.html", nom=n, prenom=p, numero=nt)
+  enregistrement_bd((n, p, nt))
+  return render_template("ajout_ok.html", nom=n, prenom=p, numero=nt)
 
+@app.route('/recherche_resultats')
+def recherche_resultats():
+  result = request.form
+  n = result['nom']
+  p = result['prenom']
+  nt = result['numero']
+  recherche_bd((n, p, nt))
+
+#fonctions base de données
 
 def enregistrement_bd(values):
     conn = sqlite3.connect('baseDonnees.db')
     cur = conn.cursor()
     
-    cur.execute("INSERT INTO NUMEROS (id, nom, prenom) VALUES (?, ?, ?)", (values[0], values[1], values[2]))
+    cur.execute("INSERT INTO NUMEROS (nom, prenom, numero) VALUES (?, ?, ?)", (values[0], values[1], values[2]))
     conn.commit()
+    
+    cur.close()
+    conn.close()
+
+def recherche_bd(values):
+    conn = sqlite3.connect('baseDonnees.db')
+    cur = conn.cursor()
+    data=[]
+    for i in range(3):
+      if value(i)!='':
+        if i==0:
+          cur.execute("SELECT name, prenom, numero FROM NUMEROS WHERE nom = ?",(values[0],))
+          mdp_sing=cur.fetchall()
+        elif i==1:
+          
     
     cur.close()
     conn.close()
