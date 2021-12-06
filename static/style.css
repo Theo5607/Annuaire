@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Vogue';
+    src: url('Vogue.ttf');
+}
+
+
+h1{
+    text-align: center;
+	font-family: Vogue, "Times New Roman";
+}
+
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #696969;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  font-family: Vogue;
+}
+.button {background-image: linear-gradient(#42e695,
+#3bb2b8)
+}
+
+.button:hover {background-color: white}
+
+.button:active {
+  background-image: linear-gradient(#42e695,
+#3bb2b8);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+body {
+	height: 100vh;
+  background-image: linear-gradient(#13f1fc,
+#0470dc);
+  background-repeat: no-repeat;
+}
