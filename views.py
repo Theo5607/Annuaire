@@ -39,7 +39,8 @@ def recherche_resultats():
   n = result['nom']
   p = result['prenom']
   nt = result['numero']
-  liste_contacts=recherche_bd((n, p, nt))
+  liste_contacts=recherche_bd((n, p, nt))[0]
+  print(liste_contacts)
   return render_template("recherche_resultats.html", liste_c=liste_contacts)
 
 @app.route('/liste_contacts')
@@ -73,17 +74,13 @@ def recherche_bd(values):
     conn = sqlite3.connect('baseDonnees.db')
     cur = conn.cursor()
     data=[]
-    cur.execute("SELECT name, prenom, numero FROM NUMEROS WHERE nom = ?",(values[0],))
-    data.append(cur.fetchall())
-    cur.execute("SELECT name, prenom, numero FROM NUMEROS WHERE prenom = ?",(values[1],))
-    data.append(cur.fetchall())
-    cur.execute("SELECT name, prenom, numero FROM NUMEROS WHERE numero = ?",(values[2],))
+    cur.execute("SELECT nom, prenom, numero FROM NUMEROS WHERE nom = ? OR prenom = ? OR numero = ?",(values[0], values[1], values[2]))
     data.append(cur.fetchall())
     
     cur.close()
     conn.close()
     
-    return list(set(data))
+    return data
 
 def suppr_contact(id_c):
     conn = sqlite3.connect('baseDonnees.db')
@@ -95,7 +92,7 @@ def suppr_contact(id_c):
 def recup_donnees():
     conn = sqlite3.connect('baseDonnees.db')
     cur = conn.cursor()
-    cur.execute("SELECT name, prenom, numero FROM NUMEROS")
+    cur.execute("SELECT nom, prenom, numero FROM NUMEROS")
     cur.close()
     conn.close()
     
