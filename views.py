@@ -40,7 +40,6 @@ def recherche_resultats():
   p = result['prenom']
   nt = result['numero']
   liste_contacts=recherche_bd((n, p, nt))[0]
-  print(liste_contacts)
   return render_template("recherche_resultats.html", liste_c=liste_contacts)
 
 @app.route('/liste_contacts')
