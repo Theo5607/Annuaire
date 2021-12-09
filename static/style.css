@@ -1,9 +1,3 @@
-@font-face {
-    font-family: 'Vogue';
-    src: url('Vogue.ttf');
-}
-
-
 h1{
     text-align: center;
 	font-family: Vogue, "Times New Roman";
@@ -38,6 +32,7 @@ h1{
 }
 
 body {
+	font-family: Vogue, "Times New Roman";
 	height: 100vh;
   background-image: linear-gradient(#13f1fc,
 #0470dc);
