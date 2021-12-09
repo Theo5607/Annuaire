@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Résultats de la recherche</title>
+</head>
+
+<body>
+    <p1>Résultats de la recherche</p1></br>
+    <table>
+		<tr>
+			<td>Nom</td>
+			<td>Prénom</td>
+			<td>Numéro</td>
+		</tr>
+		{% for el in liste_c %}
+			<tr>
+			   <td>{{ el[0] }}</td>
+			   <td>{{ el[1] }}</td>
+			   <td>{{ el[2] }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</body>
+
+</html>
