@@ -1,3 +1,12 @@
+from flask import Flask, render_template, request
+import sqlite3
+
+conn = sqlite3.connect('baseDonnees.db')
+cur = conn.cursor()
+
+cur.execute("CREATE TABLE IF NOT EXISTS NUMEROS(id INT, nom TEXT, prenom TXT, numero INT)")
+conn.commit()
+
 cur.close()
 conn.close()
 
@@ -24,7 +33,7 @@ def ajout_ok():
   enregistrement_bd((n, p, nt))
   return render_template("ajout_ok.html", nom=n, prenom=p, numero=nt)
 
-@app.route('/recherche_resultats')
+@app.route('/recherche_resultats',methods = ['POST'])
 def recherche_resultats():
   result = request.form
   n = result['nom']
