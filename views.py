@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import sqlite3
-import unicode
+import unidecode
 
 conn = sqlite3.connect('baseDonnees.db')
 cur = conn.cursor()
