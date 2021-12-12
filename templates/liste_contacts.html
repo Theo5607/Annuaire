@@ -1,3 +1,11 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Liste des contacts</title>
+</head>
+
 <body>
     <p1>Liste de tous les contacts:</p1></br>
     <table>
@@ -13,7 +21,7 @@
 				<tr>
 					<td>{{ el[1] }}</td>
 					<td>{{ el[2] }}</td>
-					<td>{{ el[3] }}</td>
+					<td>{{ el[3][1:-1] }}</td>
 					<td>
 						<form action="http://localhost:5000/modification" method="post">
 							<input id="id_contact" type="hidden" name="id_c" value={{ el[0] }} ></input>
