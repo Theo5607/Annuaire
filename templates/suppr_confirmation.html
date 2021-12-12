@@ -10,8 +10,8 @@
     <p1>Etes-vous sur de vouloir supprimer ce contact?</p1>
     <form action="http://localhost:5000/suppr_contact" method="post">
         <input id="id_contact" type="hidden" name="id_c" value={{ id_contact }} ></input>
-        <input type="radio" value="oui" name="choix"/><label>Oui</label>
-        <input type="radio" value="non" name="choix"/><label>Non</label>
+        <input type="radio" value="oui" name="choix" required="required"/><label>Oui</label>
+        <input type="radio" value="non" name="choix" required="required"/><label>Non</label>
         <button type="submit">Confirmer</button>
     </form>
 </body>
