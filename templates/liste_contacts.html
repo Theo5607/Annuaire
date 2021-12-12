@@ -4,10 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>Liste des contacts</title>
+	<link href="/static/style.css" rel="stylesheet">
 </head>
+	
+<h1>Liste des contacts</h1> </br> </br>
 
 <body>
-    <p1>Liste de tous les contacts:</p1></br>
     <table>
 		{% if data|length == 0 %}
 			<div>Pas de contacts enregistrés dans l'annuaire!</div>
@@ -38,7 +40,9 @@
 			{% endfor %}
 		{% endif %}
 	</table>
-   <a href="http://localhost:5000"><p1>Retourner au menu</p1></a>
+   </br><a href="http://localhost:5000"><p1>Retourner au menu</p1></a>
 </body>
+
+<footer id="footer"> © 2021 Théo Bossert & Matvei Maksimenka </footer>
 
 </html>
