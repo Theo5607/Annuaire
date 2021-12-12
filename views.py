@@ -85,7 +85,7 @@ def recherche_bd(values):
     conn = sqlite3.connect('baseDonnees.db')
     cur = conn.cursor()
     data=[]
-    cur.execute("SELECT nom, prenom, numero FROM NUMEROS WHERE nom = ? OR prenom = ? OR numero = ?",(values[0], values[1], values[2]))
+    cur.execute("SELECT id, nom, prenom, numero FROM NUMEROS WHERE nom = ? OR prenom = ? OR numero = ?",(values[0], values[1], values[2]))
     data.append(cur.fetchall())
     
     cur.close()
