@@ -4,7 +4,7 @@ import sqlite3
 conn = sqlite3.connect('baseDonnees.db')
 cur = conn.cursor()
 
-cur.execute("CREATE TABLE IF NOT EXISTS NUMEROS(id INT, nom TEXT, prenom TXT, numero INT)")
+cur.execute("CREATE TABLE IF NOT EXISTS NUMEROS(id INTEGER PRIMARY KEY AUTOINCREMENT, nom TEXT, prenom TXT, numero TXT)")
 conn.commit()
 
 cur.close()
