@@ -9,9 +9,9 @@
 <body>
     <p1>Ajouter un contact dans l'annuaire:</p1>
     <form action="http://localhost:5000/ajout_ok" method="post">
-        <label>Nom</label> : <input type="text" name="nom" />
-        <label>Prénom</label> : <input type="text" name="prenom" />
-	<label>Numéro</label> : <input type="number" step="1" name="numero" />
+        <label>Nom</label> : <input type="text" required="required" name="nom" />
+        <label>Prénom</label> : <input type="text" required="required" name="prenom" />
+		<label>Numéro</label> : <input type="number" required="required" step="1" name="numero" />
         <input type="submit" value="Envoyer" />
     </form>
     <a href="http://localhost:5000"><p1>Retourner au menu</p1></a>
