@@ -75,7 +75,7 @@ def enregistrement_bd(values):
     conn = sqlite3.connect('baseDonnees.db')
     cur = conn.cursor()
     
-    cur.execute("INSERT INTO NUMEROS (nom, prenom, numero) VALUES (?, ?, ?)", (values[0], values[1], values[2]))
+    cur.execute("INSERT INTO NUMEROS (nom, prenom, numero) VALUES (?, ?, ?)", (values[0], values[1], "/"+values[2]))
     conn.commit()
     
     cur.close()
@@ -85,7 +85,7 @@ def recherche_bd(values):
     conn = sqlite3.connect('baseDonnees.db')
     cur = conn.cursor()
     data=[]
-    cur.execute("SELECT id, nom, prenom, numero FROM NUMEROS WHERE nom = ? OR prenom = ? OR numero = ?",(values[0], values[1], values[2]))
+    cur.execute("SELECT id, nom, prenom, numero FROM NUMEROS WHERE nom = ? OR prenom = ? OR numero = ?",(values[0], values[1], "/"+values[2]))
     data.append(cur.fetchall())
     
     cur.close()
@@ -97,7 +97,7 @@ def modif_contact(id_c, values):
     conn = sqlite3.connect('baseDonnees.db')
     cur = conn.cursor()
     
-    cur.execute("UPDATE NUMEROS SET nom = ?, prenom = ?, numero = ? WHERE id = ?", (values[0], values[1], values[2], id_c[0]))
+    cur.execute("UPDATE NUMEROS SET nom = ?, prenom = ?, numero = ? WHERE id = ?", (values[0], values[1], "/"+values[2], id_c[0]))
     conn.commit()
     
     cur.close()
