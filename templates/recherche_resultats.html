@@ -1,27 +1,36 @@
-<!doctype html>
-<html lang="fr">
-
-<head>
-    <meta charset="utf-8">
-    <title>Résultats de la recherche</title>
-</head>
-
 <body>
-    <p1>Résultats de la recherche</p1></br>
+    <p1>Liste de tous les contacts:</p1></br>
     <table>
-		<tr>
-			<td>Nom</td>
-			<td>Prénom</td>
-			<td>Numéro</td>
-		</tr>
-		{% for el in liste_c %}
+		{% if liste_c|length == 0 %}
+			<div>Pas de contacts enregistrés sous ces informations!</div>
+		{% else %}
 			<tr>
-			   <td>{{ el[0] }}</td>
-			   <td>{{ el[1] }}</td>
-			   <td>{{ el[2] }}</td>
+				<td>Nom</td>
+				<td>Prénom</td>
+				<td>Numéro</td>
 			</tr>
-		{% endfor %}
+			{% for el in liste_c %}
+				<tr>
+					<td>{{ el[1] }}</td>
+					<td>{{ el[2] }}</td>
+					<td>{{ el[3] }}</td>
+					<td>
+						<form action="http://localhost:5000/modification" method="post">
+							<input id="id_contact" type="hidden" name="id_c" value={{ el[0] }} ></input>
+							<input id="edit" type="submit" value="Modifier" />
+						</form>
+					</td>
+					<td>
+						<form action="http://localhost:5000/suppr_contact" method="post">
+							<input id="id_contact" type="hidden" name="id_c" value={{ el[0] }} ></input>
+							<input id="edit" type="submit" value="Supprimer" />
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		{% endif %}
 	</table>
+   <a href="http://localhost:5000"><p1>Retourner au menu</p1></a>
 </body>
 
 </html>
