@@ -1,10 +1,36 @@
-h1{
-    text-align: center;
-	font-family: Vogue, "Times New Roman";
+@font-face {
+  font-family: "ADAM";
+  src: url("ADAM.otf");
 }
 
+h1{
+  text-align: center;
+	font-family: ADAM;
+  font-size: 60px;
+}
+
+body {
+	font-family: ADAM;
+  font-size: 25px;
+	height: 100vh;
+  background-image: linear-gradient(#ffee00,#dcce04);
+  background-repeat: no-repeat;
+}
+
+.logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+  width: 400px;
+  height: auto
+}
 
 .button {
+  font-family: ADAM;
+  width: 350px;
+  height: 85px;
   display: inline-block;
   padding: 15px 25px;
   font-size: 24px;
@@ -12,29 +38,26 @@ h1{
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #696969;
-  border: none;
+  color: black;
+  border: bl;
   border-radius: 15px;
   box-shadow: 0 9px #999;
-  font-family: Vogue;
-}
-.button {background-image: linear-gradient(#42e695,
-#3bb2b8)
+  background-image: linear-gradient( #ffee00,#dcce04); 
 }
 
-.button:hover {background-color: white}
+.boutons{
+  margin: 0 auto;
+  width:fit-content;
+}
 
 .button:active {
-  background-image: linear-gradient(#42e695,
-#3bb2b8);
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-body {
-	font-family: Vogue, "Times New Roman";
-	height: 100vh;
-  background-image: linear-gradient(#13f1fc,
-#0470dc);
-  background-repeat: no-repeat;
+#footer{
+  font-family: ADAM;
+  position:absolute;
+  bottom: 0; 
+  font-size: small;
 }
