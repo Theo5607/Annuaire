@@ -40,10 +40,6 @@ def recherche_resultats():
   n = result['nom']
   p = result['prenom']
   nt = result['numero']
-  n.lower()
-  p.lower()
-  n = unidecode.unidecode(n)
-  p = unidecode.unidecode(p)
   liste_contacts=recherche_bd((n, p, nt))[0]
   return render_template("recherche_resultats.html", liste_c=liste_contacts)
 
