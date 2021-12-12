@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>Résultats de la recherche</title>
+    <link href="/static/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <p1>Résultats de la recherche:</p1></br>
+    <h1>Résultats de la recherche:</h1></br>
     <table>
 		{% if liste_c|length == 0 %}
 			<div>Pas de contacts enregistrés sous ces informations!</div>
@@ -40,5 +41,7 @@
 	</table>
    <a href="http://localhost:5000"><p1>Retourner au menu</p1></a>
 </body>
+
+<footer id="footer"> © 2021 Théo Bossert & Matvei Maksimenka </footer>
 
 </html>
