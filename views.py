@@ -62,12 +62,22 @@ def modif_ok():
   modif_contact(id_c, (n, p, nt))
   return render_template("modif_ok.html")
 
-@app.route('/suppr_contact',methods = ['POST'])
-def suppr_contact():
+@app.route('/suppr_confirmation',methods = ['POST'])
+def suppr_confirmation():
     result = request.form
     id_c = result['id_c']
+    return render_template("suppr_confirmation.html", id_contact=id_c)
+
+@app.route('/suppr_contact',methods = ['POST'])
+def suppr_contact():
+  result = request.form
+  id_c = result['id_c']
+  choix = result['choix']
+  if choix=="oui":
     suppr_contact(id_c)
     return render_template("suppr_ok.html")
+  else:
+    return render_template("index.html")
 
 #fonctions base de données
 
