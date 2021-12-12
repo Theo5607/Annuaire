@@ -3,16 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Le formulaire</title>
+    <title>Ajout de contact</title>
 </head>
 
 <body>
+    <p1>Ajouter un contact dans l'annuaire:</p1>
     <form action="http://localhost:5000/ajout_ok" method="post">
         <label>Nom</label> : <input type="text" name="nom" />
         <label>Prénom</label> : <input type="text" name="prenom" />
-		<label>Numéro</label> : <input type="int" name="numero" />
+		<label>Numéro</label> : <input type="text" name="numero" />
         <input type="submit" value="Envoyer" />
     </form>
+    <a href="http://localhost:5000"><p1>Retourner au menu</p1></a>
 </body>
 
 </html>
